@@ -80,8 +80,11 @@ async function testSpeed(url) {
 
 async function handleRequest() {
 
-    const rootDomain = window.location.hostname; // e.g., 'www.much-ai.com' or 'diagpt.com'
-    const baseDomain = rootDomain.replace(/^www\./, ''); // 去除 "www."
+    const rootDomain = window.location.hostname;
+    const baseDomain = rootDomain
+        .split('.')
+        .slice(-2)
+        .join('.'); // 提取主域和顶级域，例如 "example.com"
     const nodes = [
         { speedtest: `https://node1.${baseDomain}/job/speedtest`, redirect: `https://node1.${baseDomain}/list` },
         { speedtest: `https://node2.${baseDomain}/job/speedtest`, redirect: `https://node2.${baseDomain}/list` },
