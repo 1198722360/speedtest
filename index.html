@@ -96,6 +96,7 @@ async function handleRequest() {
     for (let i = 0; i < nodes.length; i++) {
         let speed = await testSpeed(nodes[i].speedtest);
         results.push({ speed, node: nodes[i] });
+	    console.log(speed)
 
         document.getElementById(`result${i + 1}`).textContent = speed;
     }
