@@ -106,7 +106,7 @@ async function handleRequest() {
 
     validResults.sort((a, b) => a.time - b.time);
 
-    let topThreeNodes = validResults.slice(0, 1).map(result => result.node);
+    let topThreeNodes = validResults.slice(0, 3).map(result => result.node);
 
     let randomNode = topThreeNodes[Math.floor(Math.random() * topThreeNodes.length)];
 
